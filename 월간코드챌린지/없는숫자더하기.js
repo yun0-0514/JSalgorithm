@@ -23,3 +23,9 @@ function solution(numbers) {
 
   return sum;
 }
+
+function solution2(numbers) {
+  let answer = 45 - numbers.reduce((acc, crr) => acc + crr, 0);
+
+  return answer;
+}

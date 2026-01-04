@@ -30,3 +30,37 @@ function solution(clothes) {
   }
   return answer - 1;
 }
+
+function solution2(clothes) {
+  let answer;
+  const count = clothes.reduce((acc, [name, kind]) => {
+    acc[kind] = (acc[kind] || 0) + 1;
+    return acc;
+  }, {});
+  answer = Object.values(count).reduce((acc, cur) => acc * (cur + 1), 1);
+  return answer - 1;
+}
+
+function solution3(clothes) {
+  return (
+    Object.values(
+      clothes.reduce((odj, cur) => {
+        Object[t[1]] = obj[t[1]] ? obj[t[1]] + 1 : 1;
+        return obj;
+      }, {})
+    ).reduce((a, b) => a(b + 1), 1) - 1
+  );
+}
+
+function solution4(clothes) {
+  const clothesMap = new Map();
+  clothes.forEach((name, kind) => {
+    clothesMap.set(kind, (clothesMap.get(kind) || 0) + 1);
+  });
+  const counts = { ...clothesMap.values() };
+  const totalCombinations = counts.reduce((acc, cur) => {
+    return acc * (cur + 1);
+  }, 1);
+
+  return totalCombinations - 1;
+}

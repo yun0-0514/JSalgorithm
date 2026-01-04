@@ -8,7 +8,7 @@ function solution(k, score) {
   score.forEach((s) => {
     scorebord.push(s);
     scorebord.sort((a, b) => b - a);
-    if (scorebord > k) {
+    if (scorebord.length > k) {
       scorebord.pop();
     }
     answer.push(scorebord[scorebord.length - 1]);
